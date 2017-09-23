@@ -12,14 +12,67 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
+      <!--Start Login View -->
+    <div class="container login-view">
+      <div id="alert-div" class="alert alert-div hidden" role="alert">
+      </div>
+      <div class="row">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-8">
+          <h1 class="login-title">Repertoire</h1>
+        </div>
+        <div class="col-xs-2">
+        </div>
+      </div>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+      <div class="row">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-2">
+          <h2 class="login-subhead">Log In</h2>
+        </div>
+        <div class="col-xs-4">
+        </div>
+        <div class="col-xs-2">
+          <h2 class="login-subhead">Sign Up</h2>
+        </div>
+        <div class="col-xs-2">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-2">
+          <form id="login-form">
+            <div class="form-group">
+              <input type="email" name="credentials[email]" id="login-email" placeholder="Your Email">
+              <input type="password" name="credentials[password]" id="login-password" placeholder="Your Password">
+            </div>
+            <button type="submit" class="btn btn-success">Log In</button>
+          </form>
+        </div>
+        <div class="col-xs-4">
+        </div>
+        <div class="col-xs-2">
+          <form id="signup-form">
+            <div class="form-group">
+              <input type="email" name="credentials[email]" id="signup-email" placeholder="Your Email">
+              <input type="password" name="credentials[password]" id="signup-password" placeholder="Your Password">
+              <input type="password" name="credentials[password_confirmation]" id="signup-password-confirmation" placeholder="Confirm Password">
+            </div>
+            <button type="submit" class="btn btn-success">Register</button>
+          </form>
+        </div>
+        <div class="col-xs-2">
+          <p class="signup-info"></p>
+        </div>
+      </div>
+      <footer>
+        <h3 class="footer-text">Made With &hearts; by Aaron Vale</h3>
+      </footer>
+    </div>
+    <!--End Login-View  -->
     </body>
 </html>
