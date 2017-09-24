@@ -1,9 +1,10 @@
 'use strict'
 
+const store = require('../store')
+
 // const api = require('./api')
 
 const onSignUpSuccess = function (data) {
-  console.log(data)
   $('#alert-div').html('<p>You have successfully registered!<p>')
   $('#alert-div').removeClass('hidden')
   $('#alert-div').addClass('alert-success')
@@ -17,7 +18,45 @@ const onSignUpFailure = function () {
   $('#alert-div').removeClass('alert-success')
 }
 
+const onLoginSuccess = function (data) {
+  store.userData = data
+  $('.login-view').addClass('hidden')
+  $('.app-view').removeClass('hidden')
+}
+
+const onLoginFailure = function () {
+  console.log('didnt work bro')
+}
+
+const onLogoutSuccess = function () {
+  $('#alert-div').html('<p>Logged Out Successfully!</p>')
+  $('#alert-div').removeClass('hidden')
+  $('#alert-div').addClass('alert-success')
+  $('#alert-div').removeClass('alert-danger')
+  $('.app-view').addClass('hidden')
+  $('.login-view').removeClass('hidden')
+  store.userData = null
+}
+
+const onLogoutFailure = function () {
+  console.log('didnt work bro')
+}
+
+const onChangePassSuccess = function () {
+  console.log('Password successfully changed.')
+}
+
+const onChangePassFailure = function () {
+  console.log('Something went wrong. Please try again.')
+}
+
 module.exports = {
   onSignUpSuccess,
-  onSignUpFailure
+  onSignUpFailure,
+  onLoginSuccess,
+  onLoginFailure,
+  onLogoutSuccess,
+  onLogoutFailure,
+  onChangePassSuccess,
+  onChangePassFailure
 }

@@ -74,5 +74,48 @@
       </footer>
     </div>
     <!--End Login-View  -->
+
+    <!-- Start App View -->
+    <div class="container app-view hidden">
+      <div class="row">
+        <div class="col-xs-4">
+          <h2>Repertoire</h2>
+        </div>
+        <div class="col-xs-4">
+        </div>
+        <div class="col-xs-4">
+          <button type="button" class="btn game-btn change-pass" data-toggle="modal" data-target="#changePassModal">Change Password</button>
+          <button class="btn btn-success logout-btn">Sign Out</button>
+        </div>
+    </div>
+
+    <!--Change Password Modal  -->
+      <div class="modal fade" id="changePassModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Change Password</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="change-pass">
+                <div class="form-group">
+                  <label class="form-control-label">Old Password</label>
+                  <input type="password" class="form-control" name="passwords[old]" placeholder="Old Password">
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label">New Password</label>
+                  <input type="password" class="form-control" name="passwords[new]" placeholder="New Password">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- End Login View -->
+  </div>
     </body>
 </html>
