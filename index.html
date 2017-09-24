@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Repertoire</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -87,6 +87,15 @@
           <button type="button" class="btn game-btn change-pass" data-toggle="modal" data-target="#changePassModal">Change Password</button>
           <button class="btn btn-success logout-btn">Sign Out</button>
         </div>
+    </div>
+    <div class="create-song">
+      <h2>Add Song</h2>
+      <form class="create-song-form">
+        <input type="text" name="song[name]" placeholder="Song Name">
+        <input type="text" name="song[composer]" placeholder="Composer">
+        <input type="text" name="song[instrument]" placeholder="Instrument">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
     </div>
 
     <!--Change Password Modal  -->

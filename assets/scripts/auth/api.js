@@ -12,6 +12,7 @@ const signUp = function (data) {
 }
 
 const login = function (data) {
+  console.log(data)
   return $.ajax({
     url: config.apiOrigin + '/sign-in/',
     method: 'POST',
@@ -42,9 +43,23 @@ const changePass = function (data) {
   })
 }
 
+const createSong = function (data) {
+  console.log(data)
+  const token = store.userData.user.token
+  return $.ajax({
+    url: config.apiOrigin + '/songs',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + token
+    },
+    data
+  })
+}
+
 module.exports = {
   signUp,
   login,
   logout,
-  changePass
+  changePass,
+  createSong
 }

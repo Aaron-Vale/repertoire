@@ -50,6 +50,14 @@ const onChangePassFailure = function () {
   console.log('Something went wrong. Please try again.')
 }
 
+const onCreateSongSuccess = function () {
+  console.log('YOU DID IT!!!')
+}
+
+const onCreateSongFailure = function () {
+  console.log('damn.')
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -58,5 +66,7 @@ module.exports = {
   onLogoutSuccess,
   onLogoutFailure,
   onChangePassSuccess,
-  onChangePassFailure
+  onChangePassFailure,
+  onCreateSongSuccess,
+  onCreateSongFailure
 }

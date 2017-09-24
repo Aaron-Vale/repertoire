@@ -37,11 +37,21 @@ const onChangePass = function (event) {
   $('#changePassModal').modal('hide')
 }
 
+const onCreateSong = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  data.song.user_id = store.userData.user.id
+  api.createSong(data)
+    .then(ui.onCreateSongSuccess)
+    .catch(ui.onCreateSongFailure)
+}
+
 const setEventListeners = function () {
   $('#signup-form').on('submit', onSignUp)
   $('#login-form').on('submit', onLogin)
   $('.logout-btn').on('click', onLogout)
   $('#change-pass').on('submit', onChangePass)
+  $('.create-song-form').on('submit', onCreateSong)
 }
 
 module.exports = {
