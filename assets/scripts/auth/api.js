@@ -56,10 +56,34 @@ const createSong = function (data) {
   })
 }
 
+const getSongs = function () {
+  const token = store.userData.user.token
+  return $.ajax({
+    url: config.apiOrigin + '/songs',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + token
+    }
+  })
+}
+
+const deleteSong = function (id) {
+  const token = store.userData.user.token
+  return $.ajax({
+    url: config.apiOrigin + '/songs/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   login,
   logout,
   changePass,
-  createSong
+  createSong,
+  getSongs,
+  deleteSong
 }

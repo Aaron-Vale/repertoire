@@ -1,6 +1,8 @@
 'use strict'
 
 const store = require('../store')
+const api = require('./api')
+const showSongsTemplate = require('../templates/song-table.handlebars')
 
 // const api = require('./api')
 
@@ -22,6 +24,9 @@ const onLoginSuccess = function (data) {
   store.userData = data
   $('.login-view').addClass('hidden')
   $('.app-view').removeClass('hidden')
+  api.getSongs()
+    .then(onGetSongsSuccess)
+    .catch(onGetSongsFailure)
 }
 
 const onLoginFailure = function () {
@@ -51,11 +56,52 @@ const onChangePassFailure = function () {
 }
 
 const onCreateSongSuccess = function () {
-  console.log('YOU DID IT!!!')
+  clearTable()
+  api.getSongs()
+    .then(onGetSongsSuccess)
+    .catch(onGetSongsFailure)
 }
 
 const onCreateSongFailure = function () {
   console.log('damn.')
+}
+
+const onGetSongsSuccess = function (data) {
+  const showSongsHtml = showSongsTemplate({ songs: data.songs })
+  $('.table-body').append(showSongsHtml)
+  $('.edit-song-btn').on('click', onEditSong)
+  $('.delete-song-btn').on('click', onDeleteSong)
+}
+
+const onGetSongsFailure = function () {
+  console.log('nope.')
+}
+
+const clearTable = function () {
+  $('.table-body').html('')
+}
+
+const onEditSong = function () {
+  const elementId = $(this).parent().parent().attr('data-id')
+}
+
+const onDeleteSong = function () {
+  const elementId = $(this).parent().parent().attr('data-id')
+  api.deleteSong(elementId)
+    .then(onDeleteSongSuccess)
+    .catch(onDeleteSongFailure)
+}
+
+const onDeleteSongSuccess = function () {
+  console.log('he gone!')
+  clearTable()
+  api.getSongs()
+    .then(onGetSongsSuccess)
+    .catch(onGetSongsFailure)
+}
+
+const onDeleteSongFailure = function () {
+  console.log('didnt work bro')
 }
 
 module.exports = {
