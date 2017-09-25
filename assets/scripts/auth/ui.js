@@ -83,6 +83,21 @@ const clearTable = function () {
 
 const onEditSong = function () {
   const elementId = $(this).parent().parent().attr('data-id')
+  const instrument = $(this).parent().siblings()[0]
+  const composer = $(this).parent().siblings()[1]
+  const name = $(this).parent().siblings()[2]
+  instrument.contentEditable = true
+  name.contentEditable = true
+  composer.contentEditable = true
+  $(instrument).css('background-color', 'rgba(255, 255, 0, 0.5)')
+  $(name).css('background-color', 'rgba(255, 255, 0, 0.5)')
+  $(composer).css('background-color', 'rgba(255, 255, 0, 0.5)')
+  $(this).next().hide() // Hide delete button
+  $(this).parent().append('<button class="btn btn-info confirm-song-btn">Confirm</button>')
+  $(this).hide()
+  $('.confirm-song-btn').on('click', function () {
+    onConfirmSong(elementId, instrument, name, composer)
+  })
 }
 
 const onDeleteSong = function () {
@@ -102,6 +117,34 @@ const onDeleteSongSuccess = function () {
 
 const onDeleteSongFailure = function () {
   console.log('didnt work bro')
+}
+
+const onConfirmSong = function (elementId, instrument, name, composer) {
+  const newInstrument = $(instrument).html()
+  const newComposer = $(composer).html()
+  const newName = $(name).html()
+  const data =
+    {
+      song: {
+        instrument: newInstrument,
+        composer: newComposer,
+        name: newName
+      }
+    }
+  api.editSong(elementId, data)
+    .then(onEditSongSuccess)
+    .catch(onEditSongFailure)
+}
+
+const onEditSongSuccess = function () {
+  clearTable()
+  api.getSongs()
+    .then(onGetSongsSuccess)
+    .catch(onGetSongsFailure)
+}
+
+const onEditSongFailure = function () {
+  console.log('nope')
 }
 
 module.exports = {

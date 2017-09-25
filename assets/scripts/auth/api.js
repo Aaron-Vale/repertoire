@@ -78,6 +78,19 @@ const deleteSong = function (id) {
   })
 }
 
+const editSong = function (id, data) {
+  console.log(data)
+  const token = store.userData.user.token
+  return $.ajax({
+    url: config.apiOrigin + '/songs/' + id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + token
+    },
+    data
+  })
+}
+
 module.exports = {
   signUp,
   login,
@@ -85,5 +98,6 @@ module.exports = {
   changePass,
   createSong,
   getSongs,
-  deleteSong
+  deleteSong,
+  editSong
 }
