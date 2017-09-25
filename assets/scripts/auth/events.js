@@ -46,12 +46,32 @@ const onCreateSong = function (event) {
     .catch(ui.onCreateSongFailure)
 }
 
+const onLaunchSpotify = function () {
+  $.ajax({
+    url: 'https://accounts.spotify.com/api/token',
+    method: 'POST',
+    headers: {
+      Authorization: 'Basic <base64 encoded client_id:5a465f05e35a4ffb93900a7038bbcfa7>'
+    },
+    data: {
+      grant_type: 'client_credentials'
+    }
+  })
+    .then(function (data) {
+      console.log(data)
+    })
+    .catch(function (error) {
+      console.error(error)
+    })
+}
+
 const setEventListeners = function () {
   $('#signup-form').on('submit', onSignUp)
   $('#login-form').on('submit', onLogin)
   $('.logout-btn').on('click', onLogout)
   $('#change-pass').on('submit', onChangePass)
   $('.create-song-form').on('submit', onCreateSong)
+  $('.spotify-btn').on('click', onLaunchSpotify)
 }
 
 module.exports = {
