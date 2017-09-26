@@ -111,5 +111,6 @@ module.exports = {
   onGetSongsFailure,
   onSearchItunesSuccess,
   onSearchItunesFailure,
-  clearTable
+  clearTable,
+  onEditSongSuccess
 }

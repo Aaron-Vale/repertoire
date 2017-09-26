@@ -27,6 +27,7 @@ const setEventListeners = function () {
   $('.itunes-search-song').on('submit', onSearchItunes)
   $('.create-song-form').on('submit', onCreateSong)
   $('.itunes-search-results').on('submit', '.itunes-create-song-form', onCreateSong)
+  $('.order-by').change(ui.onEditSongSuccess)
 }
 
 module.exports = {

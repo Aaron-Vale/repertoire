@@ -39,13 +39,19 @@ const editSong = function (id, data) {
 }
 
 const getSongs = function () {
+  const order = $('.order-by').val()
   const token = store.userData.user.token
+  const data =
+    {
+      order: order
+    }
   return $.ajax({
     url: config.apiOrigin + '/songs',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + token
-    }
+    },
+    data
   })
 }
 

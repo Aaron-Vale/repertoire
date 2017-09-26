@@ -107,13 +107,23 @@
     <div class="itunes-search">
       <button type="button" class="btn btn-success" data-toggle="modal" data-target="#itunesModal">iTunes Search</button>
     </div>
+    <div class="order-by-options">
+      <h3> Order table by: </h3>
+      <select class="order-by" name="song[order-by]">
+        <option class="instrument-sort" value="instrument">Instrument</option>
+        <option class="composer-sort" value="composer">Composer</option>
+        <option class="name-sort" value="name">Song Name</option>
+      </select>
+    </div>
     <div class="repertoire-table">
       <table class="table">
         <thead>
-          <th>Instrument</th>
-          <th>Composer</th>
-          <th>Piece</th>
-          <th>Options</th>
+          <tr>
+            <th>Instrument</th>
+            <th>Composer</th>
+            <th>Piece</th>
+            <th>Options</th>
+          </tr>
         </thead>
         <tbody class="table-body">
         </tbody>
