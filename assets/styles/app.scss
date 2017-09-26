@@ -1,5 +1,12 @@
 @import 'colors';
 
+.album-cover {
+  float: left;
+  left: 15px;
+  position: relative;
+  top: 20px;
+}
+
 .app-view {
   font-family: 'Great Vibes', cursive;
   height: 100vh;
@@ -10,9 +17,20 @@
 }
 
 .header {
-  border-bottom: 5px solid
+  border-bottom: 5px solid;
+}
+
+.itunes-search-info {
+  margin: 0 auto;
+  width: 50%;
 }
 
 .row {
   margin: 0;
+}
+
+.search-result {
+  border: 2px solid $black;
+  height: 250px;
+  margin-bottom: 10px;
 }

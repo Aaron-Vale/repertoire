@@ -104,9 +104,8 @@
       </form>
     </div>
     <br>
-    <div class="spotify-div">
-      <button type="button" class="btn btn-success spotify-btn">Spotify</button>
-      <!-- data-toggle="modal" data-target="#spotifyModal" -->
+    <div class="itunes-search">
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#itunesModal">iTunes Search</button>
     </div>
     <div class="repertoire-table">
       <table class="table">
@@ -147,30 +146,32 @@
           </div>
         </div>
       </div>
-
-      <!--Spotify Modal  -->
-        <div class="modal fade" id="changePassModal" tabindex="-1" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h2> Login to Spotify </h2>
-              </div>
-              <div class="modal-body">
-                <form id="change-pass">
-                  <div class="form-group">
-                    <label class="form-control-label">Spotify Username</label>
-                    <input type="text" class="form-control" name="passwords[old]" placeholder="Old Password">
-                  </div>
-                  <div class="form-group">
-                    <label class="form-control-label">New Password</label>
-                    <input type="password" class="form-control" name="passwords[new]" placeholder="New Password">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                  </div>
-                </form>
+      <!-- iTunes Search Modal -->
+      <div class="modal fade" id="itunesModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Search iTunes</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h2>Search iTunes</h2>
+              <h4>Search by Song Name, Artist Name, or Album Name</h4>
+              <form class="itunes-search-song">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="search" placeholder="Search">
+                  <button type="submit" class="btn btn-success">Search iTunes</button>
+                </div>
+              </form>
+              <br>
+              <div class="itunes-search-results">
               </div>
             </div>
           </div>
         </div>
+      </div>
     <!-- End Login View -->
   </div>
     </body>
