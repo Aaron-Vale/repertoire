@@ -5,6 +5,7 @@ const appApi = require('../app/api')
 const appUi = require('../app/ui')
 
 const onSignUpSuccess = function (data) {
+  $('#signup-form').find('input[type=email], input[type=password]').val('')
   $('#alert-div').html('<p>You have successfully registered!<p>')
   $('#alert-div').removeClass('hidden')
   $('#alert-div').addClass('alert-success')
@@ -19,6 +20,7 @@ const onSignUpFailure = function () {
 }
 
 const onLoginSuccess = function (data) {
+  $('#login-form').find('input[type=email], input[type=password]').val('')
   store.userData = data
   $('.login-view').addClass('hidden')
   $('.app-view').removeClass('hidden')
@@ -28,7 +30,10 @@ const onLoginSuccess = function (data) {
 }
 
 const onLoginFailure = function () {
-  console.log('login no work bro')
+  $('#alert-div').html('<p>Something went wrong. Either you haven\'t registered or your password is incorrect.')
+  $('#alert-div').removeClass('hidden')
+  $('#alert-div').addClass('alert-danger')
+  $('#alert-div').removeClass('alert-success')
 }
 
 const onLogoutSuccess = function () {
@@ -43,15 +48,31 @@ const onLogoutSuccess = function () {
 }
 
 const onLogoutFailure = function () {
-  console.log('didnt work bro')
+  $('#app-alert-div').html('<p>Unable to log out</p>')
+  $('#app-alert-div').show()
+  $('#app-alert-div').removeClass('hidden')
+  $('#app-alert-div').addClass('alert-danger')
+  $('#app-alert-div').removeClass('alert-success')
+  $('#app-alert-div').delay(2000).fadeOut('2000')
 }
 
 const onChangePassSuccess = function () {
-  console.log('Password successfully changed.')
+  $('#change-pass').find('input[type=password]').val('')
+  $('#app-alert-div').html('<p>Password Successfully Changed!</p>')
+  $('#app-alert-div').show()
+  $('#app-alert-div').removeClass('hidden')
+  $('#app-alert-div').addClass('alert-success')
+  $('#app-alert-div').removeClass('alert-danger')
+  $('#app-alert-div').delay(2000).fadeOut('2000')
 }
 
 const onChangePassFailure = function () {
-  console.log('Something went wrong. Please try again.')
+  $('#app-alert-div').html('<p>Unable to change password. Please try again!</p>')
+  $('#app-alert-div').show()
+  $('#app-alert-div').removeClass('hidden')
+  $('#app-alert-div').addClass('alert-danger')
+  $('#app-alert-div').removeClass('alert-success')
+  $('#app-alert-div').delay(2000).fadeOut('2000')
 }
 
 module.exports = {
