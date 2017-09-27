@@ -7,6 +7,19 @@
   top: 20px;
 }
 
+.app-input {
+  background-color: $clear;
+  border-bottom: 3px dashed $black;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin-bottom: 10px;
+  margin-right: 3px;
+  &:focus {
+    background-color: $clear;
+  }
+}
+
 .app-view {
   font-family: 'Great Vibes', cursive;
   height: 100vh;
@@ -16,8 +29,27 @@
   width: 100vw;
 }
 
+.auth-buttons {
+  height: 100%;
+}
+
+.change-pass {
+  margin-bottom: 5px;
+  width: 150px;
+}
+
 .header {
   border-bottom: 5px solid;
+  height: 75px;
+}
+
+.itunes-create-song-form {
+  position: relative;
+  top: 10px;
+}
+
+.itunes-search-btn {
+  width: 150px;
 }
 
 .itunes-search-info {
@@ -25,12 +57,24 @@
   width: 50%;
 }
 
+.pass-submit {
+  margin-top: 10px;
+}
+
 .row {
   margin: 0;
+}
+
+.search-content {
+  margin: 0 auto;
 }
 
 .search-result {
   border: 2px solid $black;
   height: 250px;
   margin-bottom: 10px;
+}
+
+th {
+  font-size: 20px;
 }
