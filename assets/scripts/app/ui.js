@@ -119,9 +119,26 @@ const onEditSong = function () {
 
 const onDeleteSong = function () {
   const elementId = $(this).parent().parent().attr('data-id')
-  api.deleteSong(elementId)
-    .then(onDeleteSongSuccess)
-    .catch(onDeleteSongFailure)
+  $(this).parent().append('<button class="btn btn-sm btn-danger confirm-delete-btn">Confirm</button>')
+  $(this).parent().append('<button class="btn btn-sm btn-default cancel-delete-btn">Cancel</button>')
+  const editBtn = $(this).siblings()[0]
+  $(editBtn).remove()
+  $(this).remove()
+  $('.confirm-delete-btn').on('click', function () {
+    api.deleteSong(elementId)
+      .then(onDeleteSongSuccess)
+      .catch(onDeleteSongFailure)
+  })
+  $('.cancel-delete-btn').on('click', function () {
+    $(this).siblings().each(function () {
+      $(this).remove()
+    })
+    $(this).parent().append('<button class="btn btn-default edit-song-btn">Edit</button>')
+    $(this).parent().append('<button class="btn btn-default delete-song-btn">Delete</button>')
+    $('.edit-song-btn').on('click', onEditSong)
+    $('.delete-song-btn').on('click', onDeleteSong)
+    $(this).remove()
+  })
 }
 
 const onDeleteSongSuccess = function () {
@@ -187,7 +204,6 @@ const onEditSongFailure = function () {
 
 const onSearchItunesSuccess = function (data) {
   const search = JSON.parse(data)
-  console.log(data)
   const showSongsHtml = iTunesSongSearchTemplate({ songs: search.results })
   $('.itunes-search-results').append(showSongsHtml)
 }
