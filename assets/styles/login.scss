@@ -1,6 +1,13 @@
 @import 'colors';
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script|Great+Vibes');
 
+a {
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 .alert {
   text-align: center;
 }
@@ -16,6 +23,26 @@
   margin: 0;
   padding: 0;
   width: 100%;
+}
+
+.cool-btn {
+  background: {
+    image: linear-gradient(to bottom, transparent 50%, $brown 50%);
+    position: 0% 0%;
+    size: 210%;
+  }
+  background-color: $clear;
+  border: 1px solid $black;
+  border-radius: 3em;
+  color: $black;
+  font-weight: bold;
+  transition: background 150ms ease-in-out, color 150ms ease-in-out;
+  width: 100px;
+
+  &:hover {
+    background-position: 0 100%;
+    color: #fff;
+  }
 }
 
 .faded {
@@ -36,6 +63,21 @@
   position: fixed;
   width: 100vw;
   z-index: -1;
+}
+
+.login-input {
+  background-color: $clear;
+  border-bottom: 3px dashed $black;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  height: 40px;
+  margin-bottom: 10px;
+  width: 100%;
+
+  &:focus {
+    background-color: $clear;
+  }
 }
 
 .login-title {

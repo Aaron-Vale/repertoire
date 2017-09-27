@@ -1,19 +1,21 @@
 {{#each songs as |song|}}
 
 <div class="search-result">
-  <img class="album-cover" src="{{song.artworkUrl100}}" alt="album cover"/>
-  <div class="itunes-search-info">
-    <h4 class="itunes-search-result-song">Song: {{song.trackName}}</h4>
-    <h4 class="itunes-search-result-composer">Artist: {{song.artistName}}</h4>
-    <h4>Album: {{song.collectionName}}</h4>
-    <h4>Genre: {{song.primaryGenreName}}</h4>
+  <div class="search-content">
+    <img class="album-cover" src="{{song.artworkUrl100}}" alt="album cover"/>
+    <div class="itunes-search-info">
+      <h4 class="itunes-search-result-song">Song: {{song.trackName}}</h4>
+      <h4 class="itunes-search-result-composer">Artist: {{song.artistName}}</h4>
+      <h4>Album: {{song.collectionName}}</h4>
+      <h4>Genre: {{song.primaryGenreName}}</h4>
+    </div>
+    <form class="itunes-create-song-form">
+      <input class="hidden" type="text" name="song[name]" value="{{song.trackName}}">
+      <input class="hidden" type="text" name="song[composer]" value="{{song.artistName}}">
+      <input class="app-input" type="text" placeholder="My Instrument" name="song[instrument]">
+      <button class="cool-btn btn-success" type="submit">Add to Repertoire</button>
+    </form>
   </div>
-  <form class="itunes-create-song-form">
-    <input class="hidden" type="text" name="song[name]" value="{{song.trackName}}">
-    <input class="hidden" type="text" name="song[composer]" value="{{song.artistName}}">
-    <input type="text" placeholder="My Instrument" name="song[instrument]">
-    <button class="btn btn-success" type="submit">Add to Repertoire</button>
-  </form>
 </div>
 
 {{/each}}
