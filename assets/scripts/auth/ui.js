@@ -45,6 +45,8 @@ const onLogoutSuccess = function () {
   $('.login-view').removeClass('hidden')
   store.userData = null
   appUi.clearTable()
+  $('.itunes-search-results').html('')
+  $('.itunes-search-song').find('input[type=text]').val('')
 }
 
 const onLogoutFailure = function () {
